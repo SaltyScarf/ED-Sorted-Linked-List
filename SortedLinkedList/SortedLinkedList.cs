@@ -115,6 +115,23 @@ namespace SortedLinkedList
 
             return status;
         }
+        
+        public bool BoolSearch(T data)
+        {
+            Node<T> currentNode = Head;
+
+            while (currentNode != null)
+            {
+                if (currentNode.Data.Equals(data))
+                {
+                    return true;
+                }
+
+                currentNode = currentNode.NextNode;
+            }
+
+            return false;
+        }
 
         public bool IsEmpty()
         {
