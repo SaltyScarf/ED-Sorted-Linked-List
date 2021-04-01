@@ -1,0 +1,6 @@
+D:\EDCSharpProjects\SortedLinkedList\SortedLinkedList\bin\Debug\SortedLinkedList.exe
+D:\EDCSharpProjects\SortedLinkedList\SortedLinkedList\bin\Debug\SortedLinkedList.pdb
+D:\EDCSharpProjects\SortedLinkedList\SortedLinkedList\obj\Debug\SortedLinkedList.csprojAssemblyReference.cache
+D:\EDCSharpProjects\SortedLinkedList\SortedLinkedList\obj\Debug\SortedLinkedList.csproj.CoreCompileInputs.cache
+D:\EDCSharpProjects\SortedLinkedList\SortedLinkedList\obj\Debug\SortedLinkedList.exe
+D:\EDCSharpProjects\SortedLinkedList\SortedLinkedList\obj\Debug\SortedLinkedList.pdb

@@ -69,7 +69,17 @@ namespace SortedLinkedList
                 }
             }
         }
-        
-        
+
+        public void PrintList()
+        {
+            Node<T> currentNode = Head;
+
+            while (currentNode != null)
+            {
+                Console.WriteLine(currentNode.Data);
+
+                currentNode = currentNode.NextNode;
+            }
+        }
     }
 }
