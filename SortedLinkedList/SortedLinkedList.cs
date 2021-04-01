@@ -14,6 +14,14 @@ namespace SortedLinkedList
         
         public Node<T> _Tail { get{ return Tail; }}
 
+        public SortedLinkedList(params T[] items)
+        {
+            foreach (T item in items)
+            {
+                AddItem(item);
+            }
+        }
+        
         public void AddItem(T data)
         {
             Node<T> temp = new Node<T>(data);
