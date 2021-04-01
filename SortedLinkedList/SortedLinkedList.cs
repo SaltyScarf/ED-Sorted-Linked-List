@@ -70,6 +70,48 @@ namespace SortedLinkedList
             }
         }
 
+        public bool RemoveItem(T data)
+        {
+            bool status = false;
+
+            Node<T> currentNode = Head;
+            Node<T> previousNode = null;
+
+            while (currentNode != null)
+            {
+                if (currentNode.Data.Equals(data))
+                {
+                    status = true;
+                    
+                    if (previousNode != null)
+                    {
+                        previousNode.NextNode = currentNode.NextNode;
+
+                        if (currentNode.NextNode == null)
+                        {
+                            Tail = previousNode;
+                        }
+                    }
+                    else
+                    {
+                        Head = currentNode.NextNode;
+
+                        if (currentNode.NextNode == null)
+                        {
+                            Tail = null;
+                        }
+                    }
+                    
+                    break;
+                }
+                
+                previousNode = currentNode;
+                currentNode = currentNode.NextNode;
+            }
+
+            return status;
+        }
+
         public void PrintList()
         {
             Node<T> currentNode = Head;
