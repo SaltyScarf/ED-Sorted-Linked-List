@@ -1,4 +1,6 @@
-﻿namespace SortedLinkedList
+﻿using System;
+
+namespace SortedLinkedList
 {
     internal class Program
     {

@@ -5,14 +5,14 @@ namespace SortedLinkedList
     public class SortedLinkedList<T> where T : IComparable<T>
     {
         private int _count;
-        private Node<T> Head;
-        private Node<T> Tail;
+        private Node<T> _head;
+        private Node<T> _tail;
         
         public int Count { get{ return _count; }}
         
-        public Node<T> _Head { get{ return Head; }}
+        public Node<T> Head { get{ return _head; }}
         
-        public Node<T> _Tail { get{ return Tail; }}
+        public Node<T> Tail { get{ return _tail; }}
 
         public SortedLinkedList(params T[] items)
         {
@@ -26,14 +26,14 @@ namespace SortedLinkedList
         {
             Node<T> temp = new Node<T>(data);
 
-            if (Head == null)
+            if (_head == null)
             {
-                Head = temp;
-                Tail = Head;
+                _head = temp;
+                _tail = _head;
             }
             else
             {
-                Node<T> currentNode = Head;
+                Node<T> currentNode = _head;
                 Node<T> previousNode = null;
 
                 while (true)
@@ -43,7 +43,7 @@ namespace SortedLinkedList
                         if (currentNode.NextNode == null)
                         {
                             currentNode.NextNode = temp;
-                            Tail = temp;
+                            _tail = temp;
                             
                             break;
                         }
@@ -55,8 +55,8 @@ namespace SortedLinkedList
                     {
                         if (previousNode == null)
                         {
-                            Head = temp;
-                            Head.NextNode = currentNode;
+                            _head = temp;
+                            _head.NextNode = currentNode;
                             
                             break;
                         }
@@ -67,6 +67,8 @@ namespace SortedLinkedList
                         break;
                     }
                 }
+
+                _count++;
             }
         }
 
@@ -74,7 +76,7 @@ namespace SortedLinkedList
         {
             bool status = false;
 
-            Node<T> currentNode = Head;
+            Node<T> currentNode = _head;
             Node<T> previousNode = null;
 
             while (currentNode != null)
@@ -89,18 +91,20 @@ namespace SortedLinkedList
 
                         if (currentNode.NextNode == null)
                         {
-                            Tail = previousNode;
+                            _tail = previousNode;
                         }
                     }
                     else
                     {
-                        Head = currentNode.NextNode;
+                        _head = currentNode.NextNode;
 
                         if (currentNode.NextNode == null)
                         {
-                            Tail = null;
+                            _tail = null;
                         }
                     }
+
+                    _count--;
                     
                     break;
                 }
@@ -112,9 +116,14 @@ namespace SortedLinkedList
             return status;
         }
 
+        public bool IsEmpty()
+        {
+            return Count == 0;
+        }
+
         public void PrintList()
         {
-            Node<T> currentNode = Head;
+            Node<T> currentNode = _head;
 
             while (currentNode != null)
             {
