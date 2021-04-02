@@ -175,7 +175,7 @@ namespace SortedLinkedList
         
         public bool BoolSearch(T data)
         {
-            Node<T> currentNode = Head;
+            Node<T> currentNode = _head;
 
             while (currentNode != null)
             {
@@ -192,7 +192,7 @@ namespace SortedLinkedList
         
         public int IndexSearch(T data)
         {
-            Node<T> currentNode = Head;
+            Node<T> currentNode = _head;
             int index = 0;
 
             while (currentNode != null)
@@ -211,7 +211,7 @@ namespace SortedLinkedList
         
         public Node<T> ReturnSearch (int index)
         {
-            Node<T> currentNode = Head;
+            Node<T> currentNode = _head;
             int tempInd = 0;
 
             while (currentNode != null)
