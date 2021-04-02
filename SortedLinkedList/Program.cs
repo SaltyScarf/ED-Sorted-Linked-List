@@ -6,12 +6,7 @@ namespace SortedLinkedList
     {
         public static void Main()
         {
-            SortedLinkedList<int> newList = new SortedLinkedList<int>(4, 7, 1, 8, 9, 5);
-
-            for (int i = 0; i < newList.Count; i++)
-            {
-                Console.WriteLine(newList[i]);
-            }
+            SortedLinkedList<int> newList = new SortedLinkedList<int>(4,4,4, 7,7,7,6, 1,1, 8, 9,9, 5,5);
         }
     }
 }

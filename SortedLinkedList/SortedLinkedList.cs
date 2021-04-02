@@ -128,6 +128,51 @@ namespace SortedLinkedList
             return status;
         }
         
+        public void RemoveDuplicate()
+        {
+            int howMuch = 0;
+                
+            Node<T> currentMatch = _head;
+            bool matchRepeats = false;
+
+            Node<T> currentNode = _head.NextNode;
+            while (currentNode != null)
+            {
+                if (currentNode.Data.Equals(currentMatch.Data))
+                {
+                    matchRepeats = true;
+
+                    if (currentNode == _tail)
+                    {
+                        currentMatch.NextNode = null;
+                        _tail = currentMatch;
+
+                        _count--;
+
+                        break;
+                    }
+
+                    howMuch++;
+                }
+                else
+                {
+                    if (matchRepeats)
+                    {
+                        currentMatch.NextNode = currentNode;
+                        
+                        matchRepeats = false;
+                    }
+
+                    currentMatch = currentNode;
+                }
+
+                currentNode = currentNode.NextNode;
+            }
+
+            howMuch -= 1;
+            _count -= howMuch;
+        }
+        
         public bool BoolSearch(T data)
         {
             Node<T> currentNode = Head;
