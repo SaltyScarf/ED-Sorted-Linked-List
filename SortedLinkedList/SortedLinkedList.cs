@@ -21,6 +21,18 @@ namespace SortedLinkedList
                 AddItem(item);
             }
         }
+
+        public T this[int index]
+        {
+            get
+            {
+                return ReturnSearch(index).Data;
+            }
+            set
+            {
+                ReturnSearch(index).Data = value;
+            }
+        }
         
         public void AddItem(T data)
         {
@@ -131,6 +143,44 @@ namespace SortedLinkedList
             }
 
             return false;
+        }
+        
+        public int IndexSearch(T data)
+        {
+            Node<T> currentNode = Head;
+            int index = 0;
+
+            while (currentNode != null)
+            {
+                if (currentNode.Data.Equals(data))
+                {
+                    return index;
+                }
+
+                currentNode = currentNode.NextNode;
+                index++;
+            }
+
+            return -1;
+        }
+        
+        public Node<T> ReturnSearch (int index)
+        {
+            Node<T> currentNode = Head;
+            int tempInd = 0;
+
+            while (currentNode != null)
+            {
+                if (tempInd == index)
+                {
+                    return currentNode;
+                }
+
+                currentNode = currentNode.NextNode;
+                tempInd++;
+            }
+
+            return null;
         }
 
         public bool IsEmpty()
